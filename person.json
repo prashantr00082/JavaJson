@@ -1,0 +1,6 @@
+{
+  "name": "Alice",
+  "age": 25,
+  "balanceAmount": 2000.5,
+  "interests": ["Reading", "Coding"]
+}
