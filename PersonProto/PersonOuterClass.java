@@ -3,11 +3,9 @@
 // source: person.proto
 // Protobuf Java Version: 4.31.1
 
-package PersonProto;
-
 @com.google.protobuf.Generated
-public final class PersonProto {
-  private PersonProto() {}
+public final class PersonOuterClass {
+  private PersonOuterClass() {}
   static {
     com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
       com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
@@ -15,7 +13,7 @@ public final class PersonProto {
       /* minor= */ 31,
       /* patch= */ 1,
       /* suffix= */ "",
-      PersonProto.class.getName());
+      PersonOuterClass.class.getName());
   }
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {
@@ -27,7 +25,7 @@ public final class PersonProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface PersonOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:PersonProto.Person)
+      // @@protoc_insertion_point(interface_extends:Person)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -47,13 +45,44 @@ public final class PersonProto {
      * @return The age.
      */
     int getAge();
+
+    /**
+     * <code>double balanceAmount = 3;</code>
+     * @return The balanceAmount.
+     */
+    double getBalanceAmount();
+
+    /**
+     * <code>repeated string interests = 4;</code>
+     * @return A list containing the interests.
+     */
+    java.util.List<java.lang.String>
+        getInterestsList();
+    /**
+     * <code>repeated string interests = 4;</code>
+     * @return The count of interests.
+     */
+    int getInterestsCount();
+    /**
+     * <code>repeated string interests = 4;</code>
+     * @param index The index of the element to return.
+     * @return The interests at the given index.
+     */
+    java.lang.String getInterests(int index);
+    /**
+     * <code>repeated string interests = 4;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the interests at the given index.
+     */
+    com.google.protobuf.ByteString
+        getInterestsBytes(int index);
   }
   /**
-   * Protobuf type {@code PersonProto.Person}
+   * Protobuf type {@code Person}
    */
   public static final class Person extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:PersonProto.Person)
+      // @@protoc_insertion_point(message_implements:Person)
       PersonOrBuilder {
   private static final long serialVersionUID = 0L;
     static {
@@ -71,19 +100,21 @@ public final class PersonProto {
     }
     private Person() {
       name_ = "";
+      interests_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return PersonProto.PersonProto.internal_static_PersonProto_Person_descriptor;
+      return PersonOuterClass.internal_static_Person_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return PersonProto.PersonProto.internal_static_PersonProto_Person_fieldAccessorTable
+      return PersonOuterClass.internal_static_Person_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              PersonProto.PersonProto.Person.class, PersonProto.PersonProto.Person.Builder.class);
+              PersonOuterClass.Person.class, PersonOuterClass.Person.Builder.class);
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
@@ -136,6 +167,54 @@ public final class PersonProto {
       return age_;
     }
 
+    public static final int BALANCEAMOUNT_FIELD_NUMBER = 3;
+    private double balanceAmount_ = 0D;
+    /**
+     * <code>double balanceAmount = 3;</code>
+     * @return The balanceAmount.
+     */
+    @java.lang.Override
+    public double getBalanceAmount() {
+      return balanceAmount_;
+    }
+
+    public static final int INTERESTS_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.LazyStringArrayList interests_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    /**
+     * <code>repeated string interests = 4;</code>
+     * @return A list containing the interests.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getInterestsList() {
+      return interests_;
+    }
+    /**
+     * <code>repeated string interests = 4;</code>
+     * @return The count of interests.
+     */
+    public int getInterestsCount() {
+      return interests_.size();
+    }
+    /**
+     * <code>repeated string interests = 4;</code>
+     * @param index The index of the element to return.
+     * @return The interests at the given index.
+     */
+    public java.lang.String getInterests(int index) {
+      return interests_.get(index);
+    }
+    /**
+     * <code>repeated string interests = 4;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the interests at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getInterestsBytes(int index) {
+      return interests_.getByteString(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -156,6 +235,12 @@ public final class PersonProto {
       if (age_ != 0) {
         output.writeInt32(2, age_);
       }
+      if (java.lang.Double.doubleToRawLongBits(balanceAmount_) != 0) {
+        output.writeDouble(3, balanceAmount_);
+      }
+      for (int i = 0; i < interests_.size(); i++) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 4, interests_.getRaw(i));
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -172,6 +257,18 @@ public final class PersonProto {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, age_);
       }
+      if (java.lang.Double.doubleToRawLongBits(balanceAmount_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(3, balanceAmount_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < interests_.size(); i++) {
+          dataSize += computeStringSizeNoTag(interests_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getInterestsList().size();
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -182,15 +279,20 @@ public final class PersonProto {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof PersonProto.PersonProto.Person)) {
+      if (!(obj instanceof PersonOuterClass.Person)) {
         return super.equals(obj);
       }
-      PersonProto.PersonProto.Person other = (PersonProto.PersonProto.Person) obj;
+      PersonOuterClass.Person other = (PersonOuterClass.Person) obj;
 
       if (!getName()
           .equals(other.getName())) return false;
       if (getAge()
           != other.getAge()) return false;
+      if (java.lang.Double.doubleToLongBits(getBalanceAmount())
+          != java.lang.Double.doubleToLongBits(
+              other.getBalanceAmount())) return false;
+      if (!getInterestsList()
+          .equals(other.getInterestsList())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -206,49 +308,56 @@ public final class PersonProto {
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + AGE_FIELD_NUMBER;
       hash = (53 * hash) + getAge();
+      hash = (37 * hash) + BALANCEAMOUNT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getBalanceAmount()));
+      if (getInterestsCount() > 0) {
+        hash = (37 * hash) + INTERESTS_FIELD_NUMBER;
+        hash = (53 * hash) + getInterestsList().hashCode();
+      }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static PersonProto.PersonProto.Person parseFrom(
+    public static PersonOuterClass.Person parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PersonProto.PersonProto.Person parseFrom(
+    public static PersonOuterClass.Person parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PersonProto.PersonProto.Person parseFrom(
+    public static PersonOuterClass.Person parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PersonProto.PersonProto.Person parseFrom(
+    public static PersonOuterClass.Person parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PersonProto.PersonProto.Person parseFrom(byte[] data)
+    public static PersonOuterClass.Person parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PersonProto.PersonProto.Person parseFrom(
+    public static PersonOuterClass.Person parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PersonProto.PersonProto.Person parseFrom(java.io.InputStream input)
+    public static PersonOuterClass.Person parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static PersonProto.PersonProto.Person parseFrom(
+    public static PersonOuterClass.Person parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -256,26 +365,26 @@ public final class PersonProto {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static PersonProto.PersonProto.Person parseDelimitedFrom(java.io.InputStream input)
+    public static PersonOuterClass.Person parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static PersonProto.PersonProto.Person parseDelimitedFrom(
+    public static PersonOuterClass.Person parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PersonProto.PersonProto.Person parseFrom(
+    public static PersonOuterClass.Person parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static PersonProto.PersonProto.Person parseFrom(
+    public static PersonOuterClass.Person parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -288,7 +397,7 @@ public final class PersonProto {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(PersonProto.PersonProto.Person prototype) {
+    public static Builder newBuilder(PersonOuterClass.Person prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -304,26 +413,26 @@ public final class PersonProto {
       return builder;
     }
     /**
-     * Protobuf type {@code PersonProto.Person}
+     * Protobuf type {@code Person}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:PersonProto.Person)
-        PersonProto.PersonProto.PersonOrBuilder {
+        // @@protoc_insertion_point(builder_implements:Person)
+        PersonOuterClass.PersonOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return PersonProto.PersonProto.internal_static_PersonProto_Person_descriptor;
+        return PersonOuterClass.internal_static_Person_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return PersonProto.PersonProto.internal_static_PersonProto_Person_fieldAccessorTable
+        return PersonOuterClass.internal_static_Person_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                PersonProto.PersonProto.Person.class, PersonProto.PersonProto.Person.Builder.class);
+                PersonOuterClass.Person.class, PersonOuterClass.Person.Builder.class);
       }
 
-      // Construct using PersonProto.PersonProto.Person.newBuilder()
+      // Construct using PersonOuterClass.Person.newBuilder()
       private Builder() {
 
       }
@@ -339,23 +448,26 @@ public final class PersonProto {
         bitField0_ = 0;
         name_ = "";
         age_ = 0;
+        balanceAmount_ = 0D;
+        interests_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return PersonProto.PersonProto.internal_static_PersonProto_Person_descriptor;
+        return PersonOuterClass.internal_static_Person_descriptor;
       }
 
       @java.lang.Override
-      public PersonProto.PersonProto.Person getDefaultInstanceForType() {
-        return PersonProto.PersonProto.Person.getDefaultInstance();
+      public PersonOuterClass.Person getDefaultInstanceForType() {
+        return PersonOuterClass.Person.getDefaultInstance();
       }
 
       @java.lang.Override
-      public PersonProto.PersonProto.Person build() {
-        PersonProto.PersonProto.Person result = buildPartial();
+      public PersonOuterClass.Person build() {
+        PersonOuterClass.Person result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -363,14 +475,14 @@ public final class PersonProto {
       }
 
       @java.lang.Override
-      public PersonProto.PersonProto.Person buildPartial() {
-        PersonProto.PersonProto.Person result = new PersonProto.PersonProto.Person(this);
+      public PersonOuterClass.Person buildPartial() {
+        PersonOuterClass.Person result = new PersonOuterClass.Person(this);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
-      private void buildPartial0(PersonProto.PersonProto.Person result) {
+      private void buildPartial0(PersonOuterClass.Person result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.name_ = name_;
@@ -378,20 +490,27 @@ public final class PersonProto {
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.age_ = age_;
         }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.balanceAmount_ = balanceAmount_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          interests_.makeImmutable();
+          result.interests_ = interests_;
+        }
       }
 
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof PersonProto.PersonProto.Person) {
-          return mergeFrom((PersonProto.PersonProto.Person)other);
+        if (other instanceof PersonOuterClass.Person) {
+          return mergeFrom((PersonOuterClass.Person)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(PersonProto.PersonProto.Person other) {
-        if (other == PersonProto.PersonProto.Person.getDefaultInstance()) return this;
+      public Builder mergeFrom(PersonOuterClass.Person other) {
+        if (other == PersonOuterClass.Person.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           bitField0_ |= 0x00000001;
@@ -399,6 +518,19 @@ public final class PersonProto {
         }
         if (other.getAge() != 0) {
           setAge(other.getAge());
+        }
+        if (java.lang.Double.doubleToRawLongBits(other.getBalanceAmount()) != 0) {
+          setBalanceAmount(other.getBalanceAmount());
+        }
+        if (!other.interests_.isEmpty()) {
+          if (interests_.isEmpty()) {
+            interests_ = other.interests_;
+            bitField0_ |= 0x00000008;
+          } else {
+            ensureInterestsIsMutable();
+            interests_.addAll(other.interests_);
+          }
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -436,6 +568,17 @@ public final class PersonProto {
                 bitField0_ |= 0x00000002;
                 break;
               } // case 16
+              case 25: {
+                balanceAmount_ = input.readDouble();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 25
+              case 34: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureInterestsIsMutable();
+                interests_.add(s);
+                break;
+              } // case 34
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -557,16 +700,159 @@ public final class PersonProto {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:PersonProto.Person)
+      private double balanceAmount_ ;
+      /**
+       * <code>double balanceAmount = 3;</code>
+       * @return The balanceAmount.
+       */
+      @java.lang.Override
+      public double getBalanceAmount() {
+        return balanceAmount_;
+      }
+      /**
+       * <code>double balanceAmount = 3;</code>
+       * @param value The balanceAmount to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBalanceAmount(double value) {
+
+        balanceAmount_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double balanceAmount = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBalanceAmount() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        balanceAmount_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringArrayList interests_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      private void ensureInterestsIsMutable() {
+        if (!interests_.isModifiable()) {
+          interests_ = new com.google.protobuf.LazyStringArrayList(interests_);
+        }
+        bitField0_ |= 0x00000008;
+      }
+      /**
+       * <code>repeated string interests = 4;</code>
+       * @return A list containing the interests.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getInterestsList() {
+        interests_.makeImmutable();
+        return interests_;
+      }
+      /**
+       * <code>repeated string interests = 4;</code>
+       * @return The count of interests.
+       */
+      public int getInterestsCount() {
+        return interests_.size();
+      }
+      /**
+       * <code>repeated string interests = 4;</code>
+       * @param index The index of the element to return.
+       * @return The interests at the given index.
+       */
+      public java.lang.String getInterests(int index) {
+        return interests_.get(index);
+      }
+      /**
+       * <code>repeated string interests = 4;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the interests at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getInterestsBytes(int index) {
+        return interests_.getByteString(index);
+      }
+      /**
+       * <code>repeated string interests = 4;</code>
+       * @param index The index to set the value at.
+       * @param value The interests to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInterests(
+          int index, java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureInterestsIsMutable();
+        interests_.set(index, value);
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string interests = 4;</code>
+       * @param value The interests to add.
+       * @return This builder for chaining.
+       */
+      public Builder addInterests(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureInterestsIsMutable();
+        interests_.add(value);
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string interests = 4;</code>
+       * @param values The interests to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllInterests(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureInterestsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, interests_);
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string interests = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInterests() {
+        interests_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string interests = 4;</code>
+       * @param value The bytes of the interests to add.
+       * @return This builder for chaining.
+       */
+      public Builder addInterestsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        ensureInterestsIsMutable();
+        interests_.add(value);
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:Person)
     }
 
-    // @@protoc_insertion_point(class_scope:PersonProto.Person)
-    private static final PersonProto.PersonProto.Person DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:Person)
+    private static final PersonOuterClass.Person DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new PersonProto.PersonProto.Person();
+      DEFAULT_INSTANCE = new PersonOuterClass.Person();
     }
 
-    public static PersonProto.PersonProto.Person getDefaultInstance() {
+    public static PersonOuterClass.Person getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -602,17 +888,17 @@ public final class PersonProto {
     }
 
     @java.lang.Override
-    public PersonProto.PersonProto.Person getDefaultInstanceForType() {
+    public PersonOuterClass.Person getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_PersonProto_Person_descriptor;
+    internal_static_Person_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_PersonProto_Person_fieldAccessorTable;
+      internal_static_Person_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -622,20 +908,20 @@ public final class PersonProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\014person.proto\022\013PersonProto\"#\n\006Person\022\014\n" +
-      "\004name\030\001 \001(\t\022\013\n\003age\030\002 \001(\005B\rB\013PersonProtob" +
-      "\006proto3"
+      "\n\014person.proto\"M\n\006Person\022\014\n\004name\030\001 \001(\t\022\013" +
+      "\n\003age\030\002 \001(\005\022\025\n\rbalanceAmount\030\003 \001(\001\022\021\n\tin" +
+      "terests\030\004 \003(\tb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_PersonProto_Person_descriptor =
+    internal_static_Person_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_PersonProto_Person_fieldAccessorTable = new
+    internal_static_Person_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_PersonProto_Person_descriptor,
-        new java.lang.String[] { "Name", "Age", });
+        internal_static_Person_descriptor,
+        new java.lang.String[] { "Name", "Age", "BalanceAmount", "Interests", });
     descriptor.resolveAllFeaturesImmutable();
   }
 

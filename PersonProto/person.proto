@@ -1,10 +1,8 @@
 syntax = "proto3";
 
-package PersonProto;
-
-option java_outer_classname = "PersonProto";
-
 message Person {
   string name = 1;
   int32 age = 2;
+  double balanceAmount = 3;
+  repeated string interests = 4;
 }
